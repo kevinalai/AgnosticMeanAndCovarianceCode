@@ -1,10 +1,7 @@
 % Agnostic algorithm for computing mean of a general Gaussian
-% 
+%
 % Input: noisy data X from a Gaussian
 % Output: estimate for the mean
-
-%, outlierRemoval procedure TODO (resolve this)
-% The outlierRemoval procedure must output a set of weights w
 
 function est = agnosticMeanG(X)
 
