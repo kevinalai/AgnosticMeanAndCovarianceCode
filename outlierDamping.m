@@ -7,12 +7,9 @@ function w = outlierDamping(X)
 
 C = 1;
 
-[s2,Z] = traceEst(X);
-s2
-w = Z;
-return;
-s2 = C*s2;
+[s2, Z] = traceEst(X);
 
+s2 = C*s2;
 
 T = sum(Z,2); % matrix of squared distances from median
 w = exp(-T/s2); % matrix exponential of each entry
@@ -25,12 +22,18 @@ function [T,Z] = traceEst(X)
 m = size(X,1);
 n = size(X,2);
 
-meds = median(X);
+meds = zeros(1, n);
+
+I = eye(n);
+
+T = 0;
+for i = 1:n
+    [meds(i), sigma2] = estG1D(X, I(:, i));
+    T = T + sigma2;
+end
+
 X = X - repmat(meds, m, 1);
 Z = X.^2;
-sigma2 = sum(Z)/m;
-
-T = sum(sigma2);
 
 end
 
