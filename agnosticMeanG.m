@@ -1,7 +1,7 @@
 % Agnostic algorithm for computing mean of a general Gaussian
 %
-% Input: noisy data X from a Gaussian
-% Output: estimate for the mean
+% Input: X = noisy data from a general Gaussian
+% Output: est = estimate for the mean
 
 function est = agnosticMeanG(X)
 

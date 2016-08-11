@@ -1,8 +1,9 @@
 % Algorithm for estimating 1D mean and variance of a Gaussian in a
 % direction v
-
+%
 % Input: Noisy samples from a general Gaussian
 % Output: estimate of the mean and variance along the direction v
+
 function [mu, sigma2] = estG1D(X, v)
     
     v = v/norm(v); %normalize

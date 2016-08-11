@@ -1,4 +1,4 @@
-% Method for generating poins from a spherical Gaussian with noise placed
+% Method for generating points from a spherical Gaussian with noise placed
 % at a single point
 % 
 % Input: mean, covariance matrix, noise fraction eta, number of samples m,

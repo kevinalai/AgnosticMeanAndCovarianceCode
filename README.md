@@ -15,8 +15,18 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-RobustPCA method for agnostic estimation of mean for Gaussians and distributions with bounded fourth moments. The code accompanies the paper "Agnostic Estimation of Mean and Covariance"  at FOCS 2016.
+RobustPCA method for agnostic estimation of mean for Gaussians and distributions with bounded fourth moments. The code accompanies the paper "Agnostic Estimation of Mean and Covariance" in FOCS 2016.
 
 This repository contains code for computing the mean of a distribution in the presence of adversarial noise. The code is written in Matlab.
 
-The main routine is 
+The main routine is agnosticMeanG(X), which takes as input m samples from an n-dimensional noisy general Gaussian. Each point in X is from some Gaussian G with probability 1-eta and chosen by an adversary with probability eta. The algorithm outputs an estimate for the mean of G.
+
+noisyG(mu, Sigma, z, eta, m) generates m points such that with probability 1-eta they are selected from a Gaussian with mean mu and covariance Sigma, and with probability eta they are at z.
+
+A way to test the code would be to run:
+>> n = 10;
+>> X = noisyG(zeros(n,1), eye(n), ones(n,1)*100, .05, 5000);
+>> est = agnosticMeanG(X);
+>> norm(est)
+
+where norm(est) will give the error in this case (since the true mean is 0). The "tester.m" file runs a similar test with various values of n and compares the error of agnosticMeanG to the sample mean and median.

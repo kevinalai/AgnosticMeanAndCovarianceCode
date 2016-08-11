@@ -1,3 +1,12 @@
+% Testing code for agnosticMeanG
+% Compares the quality of agnosticMeanG's output to the sample mean and
+% sample median for noise all at the ones vector times 100
+%
+% Input: eta = noise fraction
+%        m = number of samples to test 
+% Output: norms of agnosticMeanG estimate, sample mean, and sample median
+% for various values of the dimension n
+
 function [est, sMean, sMed] = tester(eta, m)
 
     numVals = 10;
