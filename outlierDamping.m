@@ -1,6 +1,6 @@
 % Outlier damping for Gaussian Agnostic PCA
 % Input: sample X
-% Output: Column vector w of weights for each sample
+% Output: Column vector w of weights  for each sample
 function w = outlierDamping(X)
 
 C = 1;
