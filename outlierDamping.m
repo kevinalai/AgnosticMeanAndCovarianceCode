@@ -9,10 +9,8 @@ C = 1;
 
 [s2, Z] = traceEst(X);
 
-s2 = C*s2;
-
 T = sum(Z,2); % matrix of squared distances from median
-w = exp(-T/s2); % matrix exponential of each entry
+w = exp(-T/(C*s2)); % matrix exponential of each entry
 
 end
 
