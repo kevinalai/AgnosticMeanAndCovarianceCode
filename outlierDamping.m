@@ -9,7 +9,7 @@ C = 1;
 s2 = C*s2;
 
 T = sum(Z,2); % matrix of squared distances from median
-w = exp(1).^(-T/s2);
+w = exp(-T/s2); % matrix exponential of each entry
 
 end
 
@@ -18,8 +18,6 @@ function [T,Z] = traceEst(X)
 
 m = size(X,1);
 n = size(X,2);
-%sigma2 = zeros(n,1);
-%I = eye(n);
 
 meds = median(X);
 X = X - repmat(meds, m, 1);
