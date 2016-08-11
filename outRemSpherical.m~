@@ -1,0 +1,15 @@
+function [Y] = outRemSpherical(X,r)
+
+
+m = size(X,1);
+med = median(X);
+
+Y = [];
+
+for i=1:m
+    if (norm(X(i,:) - med) < 2*r)
+        Y = [Y;X(i,:)];
+    end
+end
+
+end
