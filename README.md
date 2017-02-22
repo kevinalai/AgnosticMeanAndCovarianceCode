@@ -15,6 +15,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+We also use some code for generating Cauchy random variables by Peder Axensten. The license for using that code is in the Cauchy code folder.
+
 RobustPCA method for agnostic estimation of mean for Gaussians and distributions with bounded fourth moments. The code accompanies the paper "Agnostic Estimation of Mean and Covariance" in FOCS 2016.
 
 This repository contains code for computing the mean of a distribution in the presence of adversarial noise. The code is written in Matlab.
