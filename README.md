@@ -25,10 +25,20 @@ noisyG(mu, Sigma, z, eta, m) generates m points such that with probability 1-eta
 
 A way to test the code would be to run:
 ```
->> n = 10;
->> X = noisyG(zeros(n,1), eye(n), ones(n,1)*100, .05, 5000);
->> est = agnosticMeanG(X);
+>> d = 10; eta = .1; m = 10*n^2;
+>> X = noisyG(zeros(d,1), eye(d), ones(d,1)*100, eta, m);
+>> est = agnosticMeanG(X, eta);
 >> norm(est)
 ```
 
-where norm(est) will give the error in this case (since the true mean is 0). The "tester.m" file runs a similar test with various values of n and compares the error of agnosticMeanG to the sample mean and median.
+where norm(est) will give the error in this case (since the true mean is 0).
+
+Alternately, one could use
+```
+>> est = agnosticMeanGeneral(X, eta)
+```
+
+The meanTesterGeneral and covTesterGeneral run agnosticMeanGeneral and agnosticCovarianceGeneral respectively for different true distributions with Cauchy noise, where the true distribution can be set within the covTesterGeneral code itself. The default is a multivariate Gaussian.
+
+
+
